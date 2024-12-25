@@ -9,6 +9,7 @@
     "start": "react-native start",
     "test": "jest"
   },
+  "license": "MIT",
   "dependencies": {
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
