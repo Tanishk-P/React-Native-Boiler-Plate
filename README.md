@@ -1,79 +1,105 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Boilerplate
 
-# Getting Started
+This repository serves as a robust boilerplate for starting new React Native projects. It includes pre-configured tools, libraries, and best practices to help developers jumpstart their applications with minimal setup.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- **Navigation**: Integrated with [React Navigation](https://reactnavigation.org/).
+- **Scalable Structure**: Organized folder structure for components, screens, assets, and utilities.
+- **TypeScript Support**: Ready-to-use TypeScript configuration for type-safe development.
+- **Utilities**: Includes helper functions and utilities to accelerate development.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- **State Management**: Includes setup for [Redux](https://redux.js.org/) and Context API for managing global state.(Uncoming Feature!)
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Prerequisites
+
+Ensure you have the following installed on your system:
+
+- Node.js (>= 14.x)
+- npm (>= 6.x) or yarn
+- React Native CLI
+- Android Studio / Xcode (for native builds)
+
+## Getting Started
+
+Follow these steps to use the boilerplate in your React Native project:
+
+### Clone the Repository
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+git clone https://github.com/Tanishk-P/React-Native-Boiler-Plate.git
 ```
 
-## Step 2: Start your Application
+### Install Dependencies
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+Navigate to the project folder and install the dependencies:
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+cd React-Native-Boiler-Plate
+npm install
 ```
 
-### For iOS
+or
 
 ```bash
-# using npm
-npm run ios
+cd React-Native-Boiler-Plate
+yarn install
+```
 
-# OR using Yarn
+### Run the Application
+
+#### iOS
+
+```bash
+npx pod-install
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+#### Android
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+yarn android
+```
 
-## Step 3: Modifying your App
+## Folder Structure
 
-Now that you have successfully run the app, let's modify it.
+The boilerplate follows a modular and scalable folder structure:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+```
+React-Native-Boiler-Plate/
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── screens/         # Application screens
+│   ├── navigation/      # Navigation configuration
+│   ├── store/           # Redux store and slices
+│   ├── utils/           # Utility functions
+│   ├── assets/          # Static assets (images, fonts, etc.)
+│   └── types/           # TypeScript type definitions
+├── android/             # Android-specific files
+├── ios/                 # iOS-specific files
+├── App.tsx              # Entry point
+└── package.json         # Project configuration
+```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## Contributing
 
-## Congratulations! :tada:
+Contributions are welcome! If you have ideas for improving this boilerplate, feel free to fork the repository and submit a pull request.
 
-You've successfully run and modified your React Native App. :partying_face:
+### Steps to Contribute
 
-### Now what?
+1. Fork this repository.
+2. Create a new branch for your feature or bugfix.
+3. Implement your changes and commit them.
+4. Submit a pull request with a detailed description.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+## License
 
-# Troubleshooting
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Feedback
 
-# Learn More
+If you have any issues or suggestions, please open an issue in this repository. Your feedback is greatly appreciated!
 
-To learn more about React Native, take a look at the following resources:
+## Related Tool
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Check out the [create-rn-boilerplate](https://www.npmjs.com/package/create-rn-boilerplate?activeTab=readme) CLI tool, which uses this boilerplate to help you quickly start new React Native projects.
