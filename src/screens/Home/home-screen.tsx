@@ -1,6 +1,7 @@
 import type {PropsWithChildren} from 'react';
 import React from 'react';
 import {
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -17,6 +18,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import navigationService from '../../services/navigation.service';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -64,7 +66,10 @@ export function HomeScreen(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        <Pressable
+          onPress={() => navigationService.navigate('NetworkLoggerScreen')}>
+          <Header />
+        </Pressable>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

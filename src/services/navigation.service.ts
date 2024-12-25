@@ -5,10 +5,10 @@ interface INavigationManagerService {
     readonly assignNavigator: (ref: NavigationContainerRef<AppStackParams>) => void;
     readonly getCurrentScreenName: () => string;
     readonly goBack: () => void;
-    readonly navigate: (name: string, params?: Record<string, unknown>) => void;
-    readonly navigateAndClear: (name: string, params?: Record<string, unknown>) => void;
-    readonly pushAtIndex: (name: string, index: number, params?: Record<string, unknown>) => void;
-    readonly push: (name: string, params?: Record<string, unknown>) => void;
+    readonly navigate: (name: keyof AppStackParams, params?: Record<string, unknown>) => void;
+    readonly navigateAndClear: (name: keyof AppStackParams, params?: Record<string, unknown>) => void;
+    readonly pushAtIndex: (name: keyof AppStackParams, index: number, params?: Record<string, unknown>) => void;
+    readonly push: (name: keyof AppStackParams, params?: Record<string, unknown>) => void;
     readonly pop: (count: number) => void;
 }
 
@@ -25,8 +25,8 @@ class NavigationManagerService implements INavigationManagerService {
         return NavigationManagerService.instance;
     }
 
-    getCurrentScreenName(): string {
-        return NavigationManagerService.navigator?.getCurrentRoute?.()?.name ?? '';
+    getCurrentScreenName(): keyof AppStackParams {
+        return NavigationManagerService.navigator?.getCurrentRoute?.()?.name ?? 'HomeScreen';
     }
 
     goBack(): void {
@@ -36,7 +36,7 @@ class NavigationManagerService implements INavigationManagerService {
         }
     }
 
-    pushAtIndex(name: string, index: number, params?: Record<string, unknown> | undefined): void {
+    pushAtIndex(name: keyof AppStackParams, index: number, params?: Record<string, unknown> | undefined): void {
         NavigationManagerService.navigator?.dispatch?.(CommonActions.reset({
             index,
             routes: [{
@@ -46,13 +46,13 @@ class NavigationManagerService implements INavigationManagerService {
         }));
     }
 
-    navigate(name: string, params?: Record<string, unknown>): void {
+    navigate(name: keyof AppStackParams, params?: Record<string, unknown>): void {
         NavigationManagerService.navigator?.dispatch?.(CommonActions.navigate({
             name, params,
         }));
     }
 
-    navigateAndClear(name: string, params?: Record<string, unknown> | undefined): void {
+    navigateAndClear(name: keyof AppStackParams, params?: Record<string, unknown> | undefined): void {
         NavigationManagerService.navigator?.dispatch?.(CommonActions.reset({
             index: 0,
             routes: [{
@@ -65,7 +65,7 @@ class NavigationManagerService implements INavigationManagerService {
         NavigationManagerService.navigator = ref;
     }
 
-    push(name: string, params?: Record<string, unknown> | undefined): void {
+    push(name: keyof AppStackParams, params?: Record<string, unknown> | undefined): void {
         if (NavigationManagerService.navigator) {
             NavigationManagerService.navigator.dispatch(StackActions.push(name, params));
         }

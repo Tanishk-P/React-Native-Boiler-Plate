@@ -5,6 +5,7 @@ import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {HomeScreen} from './src/screens/Home/home-screen';
 import {NetworkLoggerScreen} from './src/screens/Network-Logger/network.logger-screen';
+import {SplashScreen} from './src/screens/SplashScreen/splash-screen';
 import navigationService from './src/services/navigation.service';
 import {AppStackParams} from './src/utils/app-stack-params-list';
 
@@ -12,7 +13,14 @@ const Stack = createStackNavigator<AppStackParams>();
 const Tab = createBottomTabNavigator<AppStackParams>();
 
 const ScreenNavigator = (): JSX.Element => (
-  <Stack.Navigator initialRouteName="HomeScreen">
+  <Stack.Navigator initialRouteName="SplashScreen">
+    <Stack.Screen
+      name="SplashScreen"
+      component={SplashScreen}
+      options={{
+        header: () => null,
+      }}
+    />
     <Stack.Screen
       name="HomeScreen"
       component={TabNavigator}
@@ -47,10 +55,10 @@ const TabNavigator = (): JSX.Element => (
 
 export function App() {
   return (
-    <SafeAreaProvider>
-      <NavigationContainer ref={navigationService.assignNavigator}>
+    <NavigationContainer ref={navigationService.assignNavigator}>
+      <SafeAreaProvider>
         <ScreenNavigator />
-      </NavigationContainer>
-    </SafeAreaProvider>
+      </SafeAreaProvider>
+    </NavigationContainer>
   );
 }
