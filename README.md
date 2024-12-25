@@ -9,7 +9,7 @@ This repository serves as a robust boilerplate for starting new React Native pro
 - **TypeScript Support**: Ready-to-use TypeScript configuration for type-safe development.
 - **Utilities**: Includes helper functions and utilities to accelerate development.
 
-- **State Management**: Includes setup for [Redux](https://redux.js.org/) and Context API for managing global state.(Uncoming Feature!)
+- **State Management**: Includes setup for [Redux](https://redux-toolkit.js.org/) and Context API for managing global state.(Uncoming Feature!)
 
 ## Prerequisites
 
